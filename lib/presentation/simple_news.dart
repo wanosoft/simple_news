@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../features/home/presentation/home_screen.dart';
-import 'simple_news_theme.dart';
+import '../core/config/simple_news_theme.dart';
+import 'home_screen.dart';
 
 class SimpleNews extends StatelessWidget {
   const SimpleNews({super.key});
