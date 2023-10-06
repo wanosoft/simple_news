@@ -6,7 +6,7 @@ part 'source.freezed.dart';
 class Source with _$Source {
   const factory Source({
     required String? id,
-    required String? name,
+    required String name,
     String? description,
   }) = _Source;
 }

@@ -11,7 +11,7 @@ class SourceModel with _$SourceModel {
 
   const factory SourceModel({
     required String? id,
-    required String? name,
+    required String name,
     String? description,
   }) = _SourceModel;
 

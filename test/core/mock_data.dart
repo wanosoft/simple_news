@@ -1,3 +1,12 @@
+const sourceId = 'bbc-news';
+const sourceName = 'BBC News';
+const articleTitle =
+    'HotSat-1: Novel UK spacecraft maps heat variations across Earth';
+const articleDescription =
+    "A new British satellite is showing the world's hot and cold spots in extremely fine detail.";
+const articleContent =
+    'A novel UK satellite has returned its first pictures of heat variations across the surface of the Earth.\r\nHotS… [+3965 chars]';
+
 const Map<String, dynamic> getTopArticlesBySourceResponse = {
   'status': 'ok',
   'totalResults': 10,
