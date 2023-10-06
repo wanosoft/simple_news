@@ -12,7 +12,7 @@ Dio dio(DioRef ref) {
 class RemoteConfig {
   const RemoteConfig._();
 
-  static const baseUrl = 'https://newsapi.org/';
+  static const baseUrl = 'https://newsapi.org/v2/top-headlines';
   static const authorizationHeaders = {
     'Authorization': String.fromEnvironment('API_KEY')
   };
