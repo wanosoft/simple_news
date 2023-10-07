@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:simple_news/core/domain/entities/failure.dart';
 import 'package:simple_news/features/articles/data/articles_repository_impl.dart';
 import 'package:simple_news/features/articles/data/remote/articles_service.dart';
 import 'package:simple_news/features/articles/domain/entities/article.dart';
@@ -41,6 +42,16 @@ void main() {
           ),
         );
       });
+
+      test('should throw a failure', () async {
+        when(() => articlesService.getTopArticlesBySourceId(sourceId))
+            .thenThrow(unauthorizedException);
+
+        expectLater(
+          articlesRepositoryImpl.getTopArticlesBySourceId(sourceId),
+          throwsA(isA<UnauthorizedFailure>()),
+        );
+      });
     });
 
     group('get sources', () {
@@ -58,6 +69,16 @@ void main() {
             'first source',
             createSource(),
           ),
+        );
+      });
+
+      test('should throw a failure', () async {
+        when(() => articlesService.getSources())
+            .thenThrow(unauthorizedException);
+
+        expectLater(
+          articlesRepositoryImpl.getSources(),
+          throwsA(isA<UnauthorizedFailure>()),
         );
       });
     });
