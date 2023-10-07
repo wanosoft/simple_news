@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:simple_news/core/config/remote_config.dart';
+import 'package:simple_news/core/data/remote_config.dart';
 
 void main() {
   group('remote config', () {

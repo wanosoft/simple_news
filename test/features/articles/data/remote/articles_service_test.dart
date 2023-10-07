@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
-import 'package:simple_news/core/config/remote_config.dart';
+import 'package:simple_news/core/data/remote_config.dart';
 import 'package:simple_news/features/articles/data/models/article_model.dart';
 import 'package:simple_news/features/articles/data/models/response_wrapper.dart';
 import 'package:simple_news/features/articles/data/models/source_model.dart';

@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../../core/config/remote_config.dart';
+import '../../../../core/data/remote_config.dart';
 import '../models/response_wrapper.dart';
 
 part 'articles_service.g.dart';
