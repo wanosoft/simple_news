@@ -5,13 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:simple_news/core/presentation/error_handler.dart';
 
+import '../../mocks.dart';
 import 'test_widgets_utils.dart';
-
-class VoidCallBack {
-  void call() {}
-}
-
-class MockVoidCallBack extends Mock implements VoidCallBack {}
 
 void main() {
   group('error handler', () {
@@ -27,9 +22,7 @@ void main() {
 
       await prepareAndSettle(
         tester,
-        widget: MaterialApp(
-          home: Scaffold(body: errorHandler(error, null, onRetry: onRetry)),
-        ),
+        widget: errorHandler(error, null, onRetry: onRetry),
       );
 
       expect(find.byType(SimpleNewsErrorWidget), findsOneWidget);
