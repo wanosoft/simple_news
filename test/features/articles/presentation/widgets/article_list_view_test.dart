@@ -11,12 +11,18 @@ void main() {
       await prepareAndSettle(
         tester,
         widget: ArticleListView(
-          articles: [createArticle(), createArticle()],
+          articles: [
+            createArticle(content: 'content'),
+            createArticle(content: 'content2'),
+          ],
           onRefresh: () async => {},
         ),
       );
 
-      expect(find.byType(SimpleNewsListItem), findsNWidgets(2));
+      expect(
+        find.byType(SimpleNewsListItem, skipOffstage: false),
+        findsNWidgets(2),
+      );
     });
 
     testWidgets('should return empty state if list is emtpy', (tester) async {

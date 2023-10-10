@@ -27,10 +27,7 @@ class _ArticleScreenState extends ConsumerState<ArticleScreen> {
     super.didChangeDependencies();
     ref.watch(savedArticlesProvider).maybeWhen(
           data: (saved) => setState(
-            () {
-              final result = saved.contains(widget.article);
-              _isSaved = result;
-            },
+            () => _isSaved = saved.contains(widget.article),
           ),
           orElse: () => setState(() => _isSaved = false),
         );

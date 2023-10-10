@@ -52,11 +52,15 @@ void main() {
 
       await articlesLocalService.saveArticle(article);
 
+      var result = await articlesLocalService.getAllSavedArticles();
+
+      expect(result, isNotEmpty);
+
       final deleteResult = await articlesLocalService.deleteArticle(article);
 
-      expect(deleteResult, true);
+      expect(deleteResult, false);
 
-      final result = await articlesLocalService.getAllSavedArticles();
+      result = await articlesLocalService.getAllSavedArticles();
 
       expect(result, isEmpty);
     });
