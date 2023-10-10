@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../features/articles/presentation/home_screen.dart';
+import '../../features/articles/presentation/sources_screen.dart';
 import 'simple_news_theme.dart';
 
 class SimpleNews extends StatelessWidget {
@@ -15,7 +15,7 @@ class SimpleNews extends StatelessWidget {
         useMaterial3: true,
         textTheme: SimpleNewsTheme.textTheme,
       ),
-      home: const HomeScreen(),
+      home: const SourcesScreen(),
     );
   }
 }
