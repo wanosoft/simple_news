@@ -12,6 +12,16 @@ final _router = GoRouter(
           pageBuilder: (context, state) => const NoTransitionPage(
             child: SourcesScreen(),
           ),
+          routes: [
+            GoRoute(
+              name: SimpleNewsRoutes.articles.name,
+              path: ':sourceId',
+              builder: (context, state) {
+                final sourceId = state.pathParameters['sourceId']!;
+                return ArticlesScreen(sourceId);
+              },
+            ),
+          ],
         ),
         GoRoute(
           name: SimpleNewsRoutes.favorites.name,

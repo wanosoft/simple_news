@@ -19,7 +19,7 @@ abstract class ArticlesService {
 
   @GET('/')
   Future<ArticlesResponseWrapper> getTopArticlesBySourceId(
-    @Query('source') String sourceId,
+    @Query('sources') String sourceId,
   );
 
   @GET('/sources')
