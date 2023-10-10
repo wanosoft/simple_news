@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -23,7 +25,11 @@ class RemoteConfig {
         baseUrl: baseUrl,
         headers: authorizationHeaders,
       );
-    dio.interceptors.add(PrettyDioLogger());
+    dio.interceptors.add(
+      PrettyDioLogger(
+        logPrint: (object) => log(object.toString()),
+      ),
+    );
     return dio;
   }
 }
