@@ -29,13 +29,15 @@ class ArticleListView extends StatelessWidget {
 
     return RefreshIndicator(
       onRefresh: onRefresh,
-      child: isEmtpy
-          ? const EmptyListState()
-          : SingleChildScrollView(
-              child: Column(
+      child: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        child: isEmtpy
+            ? const EmptyListState()
+            : Column(
                 children: verifiedArticles
                     .map(
                       (article) => SimpleNewsListItem.article(
+                        key: Key(article.hashCode.toString()),
                         article,
                         onTap: () => context.pushNamed(
                           SimpleNewsRoutes.article.name,
@@ -45,7 +47,7 @@ class ArticleListView extends StatelessWidget {
                     )
                     .toList(),
               ),
-            ),
+      ),
     );
   }
 }

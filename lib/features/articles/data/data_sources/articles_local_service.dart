@@ -46,7 +46,9 @@ class ArticlesLocalService {
     final savedArticles = _database.select(_database.articles)
       ..where((table) => table.data.equals(json.encode(articleModel.toJson())));
     final article = await savedArticles.getSingleOrNull();
-
-    return await (_database.articles.deleteOne(article!.toCompanion(true)));
+    if (article != null) {
+      await (_database.articles.deleteOne(article.toCompanion(true)));
+    }
+    return false;
   }
 }
