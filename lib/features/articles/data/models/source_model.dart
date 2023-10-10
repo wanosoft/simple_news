@@ -18,5 +18,5 @@ class SourceModel with _$SourceModel {
   factory SourceModel.fromJson(Map<String, dynamic> json) =>
       _$SourceModelFromJson(json);
 
-  Source toSource() => Source(id: id, name: name);
+  Source toSource() => Source(id: id, name: name, description: description);
 }
