@@ -54,7 +54,7 @@ void main() {
 
       final deleteResult = await articlesLocalService.deleteArticle(article);
 
-      expect(deleteResult, 1);
+      expect(deleteResult, true);
 
       final result = await articlesLocalService.getAllSavedArticles();
 

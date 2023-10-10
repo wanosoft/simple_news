@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
+import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -24,7 +25,7 @@ QueryExecutor queryExecutor(QueryExecutorRef ref) {
   return LazyDatabase(() async {
     final dbFolder = await getDocumentsDirectory();
     final file = File(join(dbFolder.path, 'db.sqlite'));
-    return NativeDatabase(file);
+    return NativeDatabase(file, logStatements: kDebugMode);
   });
 }
 
@@ -56,6 +57,7 @@ class ArticlesConverter extends TypeConverter<ArticleModel, String> {
 
 /// Articles table definition, used to save articles in local storage.
 class Articles extends Table {
-  IntColumn get id => integer().autoIncrement()();
+  @override
+  Set<Column<Object>>? get primaryKey => {data};
   TextColumn get data => text().map(ArticlesConverter())();
 }

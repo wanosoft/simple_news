@@ -20,7 +20,7 @@ class FavoritesScreen extends ConsumerWidget {
           articles: articles,
           onRefresh: () => ref.refresh(getAllSavedArticlesProvider.future),
         ),
-        onRetry: () => ref.refresh(getAllSavedArticlesProvider),
+        onRetry: () => ref.refresh(getAllSavedArticlesProvider.future),
       ),
     );
   }

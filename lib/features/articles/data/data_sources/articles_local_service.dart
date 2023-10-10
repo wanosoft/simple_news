@@ -36,14 +36,17 @@ class ArticlesLocalService {
     return articles.map((a) => a.data).toList();
   }
 
-  Future<int> saveArticle(ArticleModel articleModel) async =>
-      await _database.into(_database.articles).insert(
-            ArticlesCompanion.insert(data: articleModel),
-            mode: InsertMode.insertOrReplace,
-          );
+  Future<int> saveArticle(ArticleModel articleModel) async {
+    return await _database
+        .into(_database.articles)
+        .insertOnConflictUpdate(ArticlesCompanion.insert(data: articleModel));
+  }
 
-  Future<int> deleteArticle(ArticleModel articleModel) async =>
-      await _database.articles.deleteWhere(
-        (table) => table.data.equalsValue(articleModel),
-      );
+  Future<bool> deleteArticle(ArticleModel articleModel) async {
+    final savedArticles = _database.select(_database.articles)
+      ..where((table) => table.data.equals(json.encode(articleModel.toJson())));
+    final article = await savedArticles.getSingleOrNull();
+
+    return await (_database.articles.deleteOne(article!.toCompanion(true)));
+  }
 }

@@ -29,7 +29,9 @@ class ArticlesScreen extends ConsumerWidget {
             getTopArticlesBySourceIdProvider(sourceId).future,
           ),
         ),
-        onRetry: () => ref.refresh(getTopArticlesBySourceIdProvider(sourceId)),
+        onRetry: () => ref.refresh(
+          getTopArticlesBySourceIdProvider(sourceId).future,
+        ),
       ),
     );
   }
