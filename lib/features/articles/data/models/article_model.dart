@@ -20,10 +20,21 @@ class ArticleModel with _$ArticleModel {
   factory ArticleModel.fromJson(Map<String, dynamic> json) =>
       _$ArticleModelFromJson(json);
 
+  factory ArticleModel.fromEntity(Article article) => ArticleModel(
+        title: article.title,
+        author: article.author,
+        description: article.description,
+        content: article.content,
+      );
+
   Article toArticle() => Article(
         title: title,
         author: author,
         description: description,
         content: content,
       );
+}
+
+extension ArticleModelList on List<ArticleModel> {
+  List<Article> toArticleList() => map((m) => m.toArticle()).toList();
 }
