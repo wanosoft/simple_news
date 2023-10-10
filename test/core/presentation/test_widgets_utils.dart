@@ -54,7 +54,7 @@ class NavigationWrapper extends StatelessWidget {
   });
 
   bool get supportNavigation => mockGoRouter != null;
-  final MockGoRouter? mockGoRouter;
+  final GoRouter? mockGoRouter;
   final Widget widget;
 
   @override
@@ -73,7 +73,7 @@ Future<void> prepareAndSettle(
   required Widget widget,
   Size screenSize = defaultScreenSize,
   bool isConsumer = false,
-  MockGoRouter? goRouter,
+  GoRouter? goRouter,
   List<Override> overrides = const [],
 }) async {
   await pumpWidget(
@@ -93,7 +93,7 @@ Future<void> pumpWidget(
   Size? screenSize = defaultScreenSize,
   bool isConsumer = false,
   List<Override> overrides = const [],
-  MockGoRouter? goRouter,
+  GoRouter? goRouter,
 }) async {
   if (screenSize != null) {
     setupScreenSize(tester, screenSize);
