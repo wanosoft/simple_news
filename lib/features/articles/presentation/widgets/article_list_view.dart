@@ -27,26 +27,37 @@ class ArticleListView extends StatelessWidget {
       }
     }
 
+    verifiedArticles.map(
+      (article) => SimpleNewsListItem.article(
+        key: Key(article.hashCode.toString()),
+        article,
+        onTap: () => context.pushNamed(
+          SimpleNewsRoutes.article.name,
+          extra: article,
+        ),
+      ),
+    );
+
     return RefreshIndicator(
       onRefresh: onRefresh,
-      child: SingleChildScrollView(
-        physics: const AlwaysScrollableScrollPhysics(),
-        child: isEmtpy
-            ? const EmptyListState()
-            : Column(
-                children: verifiedArticles
-                    .map(
-                      (article) => SimpleNewsListItem.article(
-                        key: Key(article.hashCode.toString()),
-                        article,
-                        onTap: () => context.pushNamed(
-                          SimpleNewsRoutes.article.name,
-                          extra: article,
-                        ),
-                      ),
-                    )
-                    .toList(),
+      child: CustomScrollView(
+        slivers: [
+          if (isEmtpy)
+            const SliverFillRemaining(child: EmptyListState())
+          else
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) => SimpleNewsListItem.article(
+                  verifiedArticles[index],
+                  onTap: () => context.pushNamed(
+                    SimpleNewsRoutes.article.name,
+                    extra: verifiedArticles[index],
+                  ),
+                ),
+                childCount: verifiedArticles.length,
               ),
+            ),
+        ],
       ),
     );
   }
@@ -58,25 +69,22 @@ class EmptyListState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          const Icon(
-            Icons.newspaper,
-            color: Colors.grey,
-          ),
-          Text(
-            "There's no articles yet",
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: Colors.grey),
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Icon(
+          Icons.newspaper,
+          color: Colors.grey,
+        ),
+        Text(
+          "There's no articles yet",
+          style: Theme.of(context)
+              .textTheme
+              .bodySmall!
+              .copyWith(color: Colors.grey),
+        ),
+      ],
     );
   }
 }

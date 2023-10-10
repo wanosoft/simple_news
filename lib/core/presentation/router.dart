@@ -33,9 +33,9 @@ final _router = GoRouter(
         GoRoute(
           name: SimpleNewsRoutes.article.name,
           path: SimpleNewsRoutes.article.path,
-          builder: (context, state) {
+          pageBuilder: (context, state) {
             final article = state.extra as Article;
-            return ArticleScreen(article);
+            return NoTransitionPage(child: ArticleScreen(article));
           },
         ),
       ],
