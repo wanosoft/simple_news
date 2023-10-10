@@ -18,7 +18,6 @@ dart run build_runner build
 flutter doctor
 ```
 
-
 Since we fetch data from [newsapi.org](https://newsapi.org), we will need an `API_KEY` to fetch the content.
 
 6. Copy your API key in the [account](https://newsapi.org/account) section.
@@ -36,14 +35,14 @@ flutter run --dart-define API_KEY=REPLACEMEWITHYOURAPIKEY
 ### Top articles view
 4. Fetch top-articles by source.
 5. Pull to refresh.
-6. Automatically refresh articles every 2 minutes.
-7. Save favourite articles in local storage.
+6. Save favourite articles in local storage.
 
 ### Favourites view
-8. Display a list of favorite articles.
-9. Remove favorite articles.
+7. Display a list of favorite articles.
+8. Remove favorite articles.
 
 ## TODOs
 This application was developed in short time so we're missing some features listed here:
 1. Implement pagination
 2. Enhance error handling
+3. Background updates
