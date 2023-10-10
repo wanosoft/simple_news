@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/articles/domain/entities/article.dart';
+import '../../features/articles/presentation/article_screen.dart';
 import '../../features/articles/presentation/articles_screen.dart';
 import '../../features/articles/presentation/favorites_screen.dart';
 import '../../features/articles/presentation/sources_screen.dart';

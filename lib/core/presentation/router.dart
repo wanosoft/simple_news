@@ -30,6 +30,14 @@ final _router = GoRouter(
             child: FavoritesScreen(),
           ),
         ),
+        GoRoute(
+          name: SimpleNewsRoutes.article.name,
+          path: SimpleNewsRoutes.article.path,
+          builder: (context, state) {
+            final article = state.extra as Article;
+            return ArticleScreen(article);
+          },
+        ),
       ],
     ),
   ],
