@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'source.dart';
 
 part 'article.freezed.dart';
 
@@ -10,6 +9,5 @@ class Article with _$Article {
     required String? author,
     required String? description,
     required String? content,
-    required Source source,
   }) = _Article;
 }

@@ -19,12 +19,10 @@ Article createArticle({
   String? author = sourceName,
   String? description = articleDescription,
   String? content = articleContent,
-  Source? source,
 }) =>
     Article(
       title: title,
       author: author,
       description: description,
       content: content,
-      source: source ?? createSource(),
     );

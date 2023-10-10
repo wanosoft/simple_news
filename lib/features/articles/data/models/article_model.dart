@@ -1,10 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../domain/entities/article.dart';
 import 'source_model.dart';
 
 part 'article_model.freezed.dart';
 part 'article_model.g.dart';
 
+/// This object represents an article fetched by the remote
 @freezed
 class ArticleModel with _$ArticleModel {
   const ArticleModel._();
@@ -25,6 +27,5 @@ class ArticleModel with _$ArticleModel {
         author: author,
         description: description,
         content: content,
-        source: source.toSource(),
       );
 }
