@@ -17,8 +17,12 @@ class SimpleNews extends StatelessWidget {
     return MaterialApp.router(
       title: 'Simple News',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
+        textTheme: SimpleNewsTheme.textTheme,
+      ),
+      darkTheme: ThemeData.dark(
+        useMaterial3: true,
+      ).copyWith(
         textTheme: SimpleNewsTheme.textTheme,
       ),
       routeInformationProvider: _router.routeInformationProvider,
