@@ -5,17 +5,17 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../../../core/data/remote_config.dart';
 import '../models/response_wrapper.dart';
 
-part 'articles_service.g.dart';
+part 'articles_remote_service.g.dart';
 
 @Riverpod(keepAlive: true)
-ArticlesService articlesService(ArticlesServiceRef ref) {
+ArticlesRemoteService articlesRemoteService(ArticlesRemoteServiceRef ref) {
   final dio = ref.watch(dioProvider);
-  return ArticlesService(dio);
+  return ArticlesRemoteService(dio);
 }
 
 @RestApi()
-abstract class ArticlesService {
-  factory ArticlesService(Dio dio) = _ArticlesService;
+abstract class ArticlesRemoteService {
+  factory ArticlesRemoteService(Dio dio) = _ArticlesRemoteService;
 
   @GET('/')
   Future<ArticlesResponseWrapper> getTopArticlesBySourceId(

@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:simple_news/core/domain/entities/failure.dart';
 import 'package:simple_news/features/articles/data/articles_repository_impl.dart';
-import 'package:simple_news/features/articles/data/remote/articles_service.dart';
+import 'package:simple_news/features/articles/data/data_sources/articles_remote_service.dart';
 import 'package:simple_news/features/articles/domain/entities/article.dart';
 import 'package:simple_news/features/articles/domain/entities/source.dart';
 
@@ -10,11 +10,11 @@ import '../../../core/mock_data.dart';
 import '../domain/entity_factory.dart';
 import 'model_factory.dart';
 
-class MockArticlesService extends Mock implements ArticlesService {}
+class MockArticlesService extends Mock implements ArticlesRemoteService {}
 
 void main() {
   group('articles repository impl', () {
-    late ArticlesService articlesService;
+    late ArticlesRemoteService articlesService;
     late ArticlesRepositoryImpl articlesRepositoryImpl;
 
     setUp(() {
