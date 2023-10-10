@@ -39,7 +39,6 @@ ArticleModel createArticleModel({
       author: author,
       description: description,
       content: content,
-      source: source ?? createSourceModel(),
     );
 
 ArticlesResponseWrapper createArticlesResponseWrapper([

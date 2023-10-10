@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/entities/article.dart';
-import 'source_model.dart';
 
 part 'article_model.freezed.dart';
 part 'article_model.g.dart';
@@ -16,7 +15,6 @@ class ArticleModel with _$ArticleModel {
     required String? author,
     required String? description,
     required String? content,
-    required SourceModel source,
   }) = _ArticleModel;
 
   factory ArticleModel.fromJson(Map<String, dynamic> json) =>

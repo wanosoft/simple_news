@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:drift/drift.dart';
@@ -6,8 +7,7 @@ import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-// ignore: unused_import
-import '../../features/articles/data/models/articles.dart';
+import '../../features/articles/data/models/article_model.dart';
 
 part 'local_config.g.dart';
 
@@ -40,4 +40,22 @@ class SimpleNewsDatabase extends _$SimpleNewsDatabase {
 
   @override
   int get schemaVersion => 1;
+}
+
+class ArticlesConverter extends TypeConverter<ArticleModel, String> {
+  @override
+  ArticleModel fromSql(String fromDb) {
+    return ArticleModel.fromJson(json.decode(fromDb) as Map<String, dynamic>);
+  }
+
+  @override
+  String toSql(ArticleModel value) {
+    return json.encode(value.toJson());
+  }
+}
+
+/// Articles table definition, used to save articles in local storage.
+class Articles extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get data => text().map(ArticlesConverter())();
 }
