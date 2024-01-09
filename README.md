@@ -3,8 +3,7 @@
 A simple, user friendly news app that consumes the API from [newsapi.org](https://newsapi.org).
 
 ## Getting Started
-1. [Install the most recent version of Flutter](https://docs.flutter.dev/get-started/install), and make sure you also set up `ios` and `android` platforms. (This application was built specifically for mobile platforms.)
-2. Install dependencies and generate the code:
+1. [Install the most recent version of Flutter](https://docs.flutter.dev/get-started/install), and make sure you also set up `ios` and `android` platforms.
 ```bash
 flutter pub get
 ```
