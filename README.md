@@ -42,6 +42,6 @@ flutter run --dart-define API_KEY=REPLACEMEWITHYOURAPIKEY
 
 ## TODOs
 This application was developed in short time so we're missing some features listed here:
-1. Implement pagination
+1. Implement pagination (for remote and local content).
 2. Enhance error handling
 3. Background updates
