@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../domain/entities/article.dart';
-import 'favorites_screen.dart';
+import 'saved_articles_state.dart';
 
 class ArticleScreen extends ConsumerStatefulWidget {
   ArticleScreen(

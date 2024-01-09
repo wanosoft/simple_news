@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:simple_news/features/articles/domain/entities/article.dart';
 import 'package:simple_news/features/articles/presentation/article_screen.dart';
-import 'package:simple_news/features/articles/presentation/favorites_screen.dart';
+import 'package:simple_news/features/articles/presentation/saved_articles_state.dart';
 
 import '../../../core/presentation/test_widgets_utils.dart';
 import '../domain/entity_factory.dart';
