@@ -19,22 +19,15 @@ class ArticleScreen extends ConsumerStatefulWidget {
 }
 
 class _ArticleScreenState extends ConsumerState<ArticleScreen> {
-  late bool _isSaved = false;
-  late AsyncValue<bool> isSavedState;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ref.watch(savedArticlesProvider).maybeWhen(
-          data: (saved) => setState(
-            () => _isSaved = saved.contains(widget.article),
-          ),
-          orElse: () => setState(() => _isSaved = false),
-        );
-  }
+  late bool _isSaved;
 
   @override
   Widget build(context) {
+    _isSaved = ref.watch(savedArticlesProvider).maybeWhen(
+          data: (articles) => articles.contains(widget.article),
+          orElse: () => false,
+        );
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.article.title ?? 'Unnamed article'),
