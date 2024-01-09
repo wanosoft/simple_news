@@ -22,7 +22,7 @@ void main() {
 
       await prepareAndSettle(
         tester,
-        widget: errorHandler(error, null, onRetry: onRetry),
+        widget: errorHandler(error, null, onRetry: onRetry.call),
       );
 
       expect(find.byType(SimpleNewsErrorWidget), findsOneWidget);

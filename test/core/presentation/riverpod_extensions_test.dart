@@ -22,7 +22,7 @@ void main() {
 
         await prepareAndSettle(
           tester,
-          widget: value.renderWhen((data) => Text(data), onRetry: onRetry),
+          widget: value.renderWhen((data) => Text(data), onRetry: onRetry.call),
         );
 
         expect(find.text(text), findsOneWidget);
@@ -41,7 +41,7 @@ void main() {
 
         await prepareAndSettle(
           tester,
-          widget: value.renderWhen((data) => Text(data), onRetry: onRetry),
+          widget: value.renderWhen((data) => Text(data), onRetry: onRetry.call),
         );
 
         expect(find.byType(SimpleNewsErrorWidget), findsOneWidget);
@@ -82,7 +82,7 @@ void main() {
 
         await pumpWidget(
           tester,
-          widget: value.renderWhen((data) => Text(data), onRetry: onRetry),
+          widget: value.renderWhen((data) => Text(data), onRetry: onRetry.call),
         );
         await tester.pump();
 

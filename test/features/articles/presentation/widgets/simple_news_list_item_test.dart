@@ -21,7 +21,7 @@ void main() {
         tester,
         widget: SimpleNewsListItem.source(
           source,
-          onTap: onTap,
+          onTap: onTap.call,
         ),
       );
 
@@ -45,7 +45,7 @@ void main() {
         tester,
         widget: SimpleNewsListItem.article(
           article,
-          onTap: onTap,
+          onTap: onTap.call,
         ),
       );
 
