@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../domain/articles_repository.dart';
-import '../domain/entities/article.dart';
+import '../../domain/articles_repository.dart';
+import '../../domain/entities/article.dart';
 
 part 'saved_articles_state.g.dart';
 

@@ -2,11 +2,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:simple_news/features/articles/domain/articles_repository.dart';
-import 'package:simple_news/features/articles/presentation/saved_articles_state.dart';
+import 'package:simple_news/features/articles/presentation/providers/saved_articles_state.dart';
 
-import '../../../testing_utils.dart';
-import '../domain/articles_repository_test.dart';
-import '../domain/entity_factory.dart';
+import '../../../../testing_utils.dart';
+import '../../domain/articles_repository_test.dart';
+import '../../domain/entity_factory.dart';
 
 void main() {
   late MockArticlesRepository articlesRepository;
