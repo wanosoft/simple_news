@@ -6,7 +6,7 @@ import '../domain/entities/article.dart';
 part 'saved_articles_state.g.dart';
 
 @riverpod
-class SavedArticles extends _$SavedArticles {
+class SavedArticlesState extends _$SavedArticlesState {
   @override
   Future<List<Article>> build() async {
     return await ref.watch(getAllSavedArticlesProvider.future);

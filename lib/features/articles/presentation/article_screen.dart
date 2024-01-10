@@ -23,8 +23,10 @@ class _ArticleScreenState extends ConsumerState<ArticleScreen> {
 
   @override
   Widget build(context) {
-    final savedArticlesState = ref.watch(savedArticlesProvider);
-    final savedArticlesNotifier = ref.read(savedArticlesProvider.notifier);
+    final savedArticlesState = ref.watch(savedArticlesStateProvider);
+    final savedArticlesStateNotifier = ref.read(
+      savedArticlesStateProvider.notifier,
+    );
 
     _isSaved = savedArticlesState.maybeWhen(
       data: (articles) => articles.contains(widget.article),
@@ -57,10 +59,10 @@ class _ArticleScreenState extends ConsumerState<ArticleScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           if (_isSaved) {
-            savedArticlesNotifier.removeArticle(widget.article);
+            savedArticlesStateNotifier.removeArticle(widget.article);
             setState(() => _isSaved = false);
           } else {
-            savedArticlesNotifier.addArticle(widget.article);
+            savedArticlesStateNotifier.addArticle(widget.article);
             setState(() => _isSaved = true);
           }
         },

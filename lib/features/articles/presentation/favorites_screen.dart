@@ -9,7 +9,7 @@ class FavoritesScreen extends ConsumerWidget {
 
   @override
   Widget build(context, ref) {
-    final articlesState = ref.watch(savedArticlesProvider);
+    final articlesState = ref.watch(savedArticlesStateProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Saved Articles'),
@@ -17,9 +17,9 @@ class FavoritesScreen extends ConsumerWidget {
       body: articlesState.renderWhen(
         (articles) => ArticleListView(
           articles: articles,
-          onRefresh: () => ref.refresh(savedArticlesProvider.future),
+          onRefresh: () => ref.refresh(savedArticlesStateProvider.future),
         ),
-        onRetry: () => ref.refresh(savedArticlesProvider.future),
+        onRetry: () => ref.refresh(savedArticlesStateProvider.future),
       ),
     );
   }

@@ -8,11 +8,11 @@ import 'package:simple_news/features/articles/presentation/saved_articles_state.
 import '../../../core/presentation/test_widgets_utils.dart';
 import '../domain/entity_factory.dart';
 
-class MockSavedArticles extends Mock implements SavedArticles {}
+class MockSavedArticles extends Mock implements SavedArticlesState {}
 
 void main() {
   late final Article article;
-  late final SavedArticles savedArticles;
+  late final SavedArticlesState savedArticles;
 
   setUp(() {
     article = createArticle();
@@ -35,7 +35,7 @@ void main() {
       widget: ArticleScreen(article),
       isConsumer: true,
       overrides: [
-        savedArticlesProvider.overrideWith(() => SavedArticles()),
+        savedArticlesStateProvider.overrideWith(() => SavedArticlesState()),
       ],
     );
 
