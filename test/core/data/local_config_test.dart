@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:simple_news/core/data/local_config.dart';
 
-import '../testing_utils.dart';
+import '../../testing_utils.dart';
 
 abstract class GetDocumentsDirectory {
   Future<Directory> call();
