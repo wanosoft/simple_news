@@ -1,9 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:simple_news/core/data/mock_data.dart';
 import 'package:simple_news/features/articles/data/models/article_model.dart';
 import 'package:simple_news/features/articles/data/models/response_wrapper.dart';
 import 'package:simple_news/features/articles/data/models/source_model.dart';
-
-import '../../../core/mock_data.dart';
 
 final requestOptions = RequestOptions();
 final unauthorizedException = DioException.badResponse(

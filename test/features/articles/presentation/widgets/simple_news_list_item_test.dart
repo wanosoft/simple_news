@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:simple_news/core/data/mock_data.dart';
 import 'package:simple_news/features/articles/presentation/widgets/simple_news_list_item.dart';
 
-import '../../../../core/mock_data.dart';
 import '../../../../core/presentation/test_widgets_utils.dart';
 import '../../../../mocks.dart';
 import '../../domain/entity_factory.dart';

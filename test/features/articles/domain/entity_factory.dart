@@ -1,7 +1,6 @@
+import 'package:simple_news/core/data/mock_data.dart';
 import 'package:simple_news/features/articles/domain/entities/article.dart';
 import 'package:simple_news/features/articles/domain/entities/source.dart';
-
-import '../../../core/mock_data.dart';
 
 Source createSource({
   String? id = sourceId,

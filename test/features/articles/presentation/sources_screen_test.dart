@@ -1,12 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:simple_news/core/data/mock_data.dart';
 import 'package:simple_news/core/presentation/routes.dart';
 import 'package:simple_news/features/articles/domain/articles_repository.dart';
 import 'package:simple_news/features/articles/presentation/sources_screen.dart';
 import 'package:simple_news/features/articles/presentation/widgets/simple_news_list_item.dart';
 
-import '../../../core/mock_data.dart';
 import '../../../core/presentation/test_widgets_utils.dart';
 import '../domain/entity_factory.dart';
 
