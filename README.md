@@ -37,6 +37,15 @@ _NOTE: Integration tests require an emulator/simulator to run_:
 flutter test integration_test
 ```
 
+## Installing the artifact
+This project contains a Github Actions Workflow to build an `APK`. This apk uses my personal `API_KEY` to fetch the data,
+which if exceeds the permited usage, can be blocked for 1 day, this is not suppossed to happen easily, so if you want to test
+the app quickly you can install this `APK` in your android device:
+1. Navigate to [GHA](https://github.com/wanosoft/simple_news/actions/workflows/flutter-ci.yml).
+2. Click on the most recent run.
+3. Download the artifact.
+4. Extract it and install it on your device.
+
 ## App Features
 1. Fetch sources.
 2. Pull to refresh.
