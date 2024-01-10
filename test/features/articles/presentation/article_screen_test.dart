@@ -1,41 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
+import 'package:simple_news/features/articles/domain/articles_repository.dart';
 import 'package:simple_news/features/articles/domain/entities/article.dart';
 import 'package:simple_news/features/articles/presentation/article_screen.dart';
-import 'package:simple_news/features/articles/presentation/providers/saved_articles_state.dart';
 
 import '../../../core/presentation/test_widgets_utils.dart';
+import '../../../mocks.dart';
 import '../domain/entity_factory.dart';
-
-class MockSavedArticles extends Mock implements SavedArticlesState {}
 
 void main() {
   late final Article article;
-  late final SavedArticlesState savedArticles;
+  late final VoidCallBack voidCallBack;
 
   setUp(() {
     article = createArticle();
-    savedArticles = MockSavedArticles();
+    voidCallBack = MockVoidCallBack();
   });
 
   testWidgets('article screen', (tester) async {
-    when(() => savedArticles.build()).thenAnswer(
-      (invocation) async => [createArticle(title: 'other')],
-    );
-    when(() => savedArticles.addArticle(article)).thenAnswer(
-      (invocation) async {},
-    );
-    when(() => savedArticles.removeArticle(article)).thenAnswer(
-      (invocation) async {},
-    );
-
     await prepareAndSettle(
       tester,
       widget: ArticleScreen(article),
       isConsumer: true,
       overrides: [
-        savedArticlesStateProvider.overrideWith(() => SavedArticlesState()),
+        getAllSavedArticlesProvider.overrideWith((_) async => [article]),
+        saveArticleProvider.overrideWith((_) async => voidCallBack.call),
+        deleteArticleProvider.overrideWith((_) async => voidCallBack.call),
       ],
     );
 
@@ -49,12 +39,13 @@ void main() {
 
     await tester.pumpAndSettle();
 
-    expect(find.byIcon(Icons.favorite_border), findsOneWidget);
+    expect(find.byIcon(Icons.favorite_border), findsNothing);
+    expect(find.byIcon(Icons.favorite), findsOneWidget);
 
     await tester.tap(fabFinder);
     await tester.pumpAndSettle();
 
-    expect(find.byIcon(Icons.favorite), findsOneWidget);
-    expect(find.byIcon(Icons.favorite_border), findsNothing);
+    expect(find.byIcon(Icons.favorite), findsNothing);
+    expect(find.byIcon(Icons.favorite_border), findsOneWidget);
   });
 }
